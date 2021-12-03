@@ -1,0 +1,11 @@
+<div class="columns is-centered">
+  <carousel 
+    [height]="config.height" 
+    [width]="config.width" 
+    [autoplay]="config.autoplay" 
+    [pauseOnHover]="config.pauseOnHover" >
+      <div class="carousel-cell" *ngFor="let content of contents">
+        <app-card [content]="content"></app-card>
+      </div>
+  </carousel>
+</div>

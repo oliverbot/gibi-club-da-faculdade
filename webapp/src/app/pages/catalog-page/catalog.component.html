@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<app-header></app-header>
+
+<div class="mx-4">
+<nav class="breadcrumb mt-3" aria-label="breadcrumbs">
+   <ul>
+     <li><a href="#">Início</a></li>
+     <li class="is-active"><a href="#" aria-current="page">Catálogo</a></li>
+   </ul>
+</nav>
+</div>
+ 
+<br>
+
+<div class="page">
+<section class="container">
+   <article class="panel is-link">
+      <p class="panel-heading">
+         Pesquisa
+      </p>
+      <div class="panel-block">
+        <p class="control has-icons-left">
+          <input class="input is-link" type="text" #searchBar="ngModel" [(ngModel)]="searchValue" name="searchBar" placeholder="Pesquisar..." (input)="loadPageOfComics(searchValue)">
+          <span class="icon is-left">
+            <fa-icon [icon]="faSearch" aria-hidden="true"></fa-icon>
+          </span>
+        </p>
+      </div>
+
+      
+
+     <!--  <a class="panel-block is-active dropdown ">
+        bulmaabulmaabulmaabulmaabulmaa
+        <span class="panel-icon">
+          <fa-icon 
+            style="display: inline-flex;
+                  margin-left: 5px;
+                  margin-top: 2px;
+                  align-items: center;
+                  justify-content: center;" 
+            [icon]="faCaretDown" 
+            aria-hidden="true">
+          </fa-icon>
+        </span>
+      </a> -->
+       
+   </article>
+</section>
+
+<section class="container columns is-multiline catalog">
+   <div class="column is-one-quarter" *ngFor="let comic of pageOfComics | paginate: { itemsPerPage: 4, currentPage: p };">
+      <app-card class="" [content]="comic"></app-card>
+   </div>
+   <br>
+   <app-pagination (currentPage)="p = $event"></app-pagination>
+   
+</section>
+
+</div>
+<app-footer></app-footer>

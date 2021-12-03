@@ -1,0 +1,25 @@
+<pagination-template #p="paginationApi" (pageChange)="actualPage = $event;">
+  <div class="pagination-content pagination is-centered">
+
+    <span class="pagination-subtitle">
+      Página <strong>{{ actualPage }}</strong> de <strong>{{ p.getLastPage() }}</strong>
+    </span>
+
+    <div class="pagination-pages">
+
+      <button (click)="p.previous();currentPage.emit(actualPage)" [disabled]="p.isFirstPage()">
+        <span class="pagination-previous">Previous</span>
+      </button>
+
+      <button *ngFor="let page of p.pages" class="pagination-link" [class.is-current]="p.getCurrent() === page.value" [class.current]="p.getCurrent() === page.value" (click)="p.setCurrent(page.value);currentPage.emit(page.value)">
+        {{ page.label }}
+      </button>
+
+    <button (click)="p.next();currentPage.emit(actualPage)" [disabled]="p.isLastPage()">
+      <span class="pagination-next">Next</span>
+    </button>
+
+  </div>
+
+</div>
+</pagination-template>

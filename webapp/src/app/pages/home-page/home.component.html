@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<app-header></app-header>
+<div class="container level-left is-widescreen mt-2">
+   <span class="tag is-link ml-6">ÚLTIMOS LANÇAMENTOS</span>
+</div>
+<br>
+<app-carousel [config]="CONFIG_FOR_COMIC_CARDS" [contents]="lastAddedComics"></app-carousel>
+<br><br>
+<div class="container level-left is-widescreen mt-2">
+   <span class="tag is-link ml-6">ADICIONADOS RECENTEMENTE</span>
+</div>
+<br>
+<app-carousel [config]="CONFIG_FOR_COMIC_CARDS" [contents]="lastPublishedComics"></app-carousel>
+<br><br>
+<app-footer></app-footer>

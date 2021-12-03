@@ -1,0 +1,10 @@
+.navbar {
+    .navbar-end {
+        .search-bar {
+            cursor: default;
+            &:hover {
+                background-color: white;
+            }
+        }
+    }
+}
